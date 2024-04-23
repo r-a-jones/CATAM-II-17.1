@@ -1,0 +1,20 @@
+\contentsline {section}{17.1 Graph Colouring}{1}{section*.2}%
+\contentsline {subsection}{Question 1}{1}{section*.3}%
+\contentsline {subsection}{Question 2}{3}{section*.4}%
+\contentsline {subsubsection}{An ordering guaranteeing that the greedy algorithm uses no more than 3 colours for $\mathcal {G}_3(70, 0.75)$}{3}{section*.5}%
+\contentsline {subsubsection}{Why was $p=0.75$ chosen here?}{3}{section*.6}%
+\contentsline {subsubsection}{A graph $G$ of order $3n$ such that $\chi (G) = 3$ but on which greedy might need $n + 2$ colours}{3}{section*.7}%
+\contentsline {section}{Appendix A: Code}{5}{section*.8}%
+\contentsline {subsection}{Matrices.cs}{5}{section*.9}%
+\contentsline {subsection}{MatricesKernel.cs}{10}{section*.10}%
+\contentsline {subsection}{MatricesRREF.cs}{13}{section*.11}%
+\contentsline {subsection}{ArrayExtensions.cs}{19}{section*.12}%
+\contentsline {subsection}{ContinuedFractions.cs}{21}{section*.13}%
+\contentsline {subsection}{GenericExtensions.cs}{24}{section*.14}%
+\contentsline {subsection}{ModularArithmetic.cs}{26}{section*.15}%
+\contentsline {subsection}{PellsEquation.cs}{30}{section*.16}%
+\contentsline {subsection}{PrimeFieldInverses.cs}{33}{section*.17}%
+\contentsline {subsection}{PrimesAndFactorisation.cs}{34}{section*.18}%
+\contentsline {subsection}{Program.cs}{37}{section*.19}%
+\contentsline {section}{Appendix B: Output}{55}{section*.20}%
+\contentsline {subsection}{Question 1 output}{55}{section*.21}%
