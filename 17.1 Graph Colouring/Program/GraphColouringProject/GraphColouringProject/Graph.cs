@@ -54,6 +54,15 @@ namespace GraphColouringProject
             }
             return count;
         }
+
+        public bool AreConnected(int vertexA, int vertexB)
+        {
+            if (vertexA > vertexB)
+            {
+                return AreConnected(vertexB, vertexA);
+            }
+            return edges.Contains((vertexA, vertexB));
+        }
         public int NumberOfVerticesConnectedTo(int vertex, int[] ignoring)
         {
             int count = 0;
@@ -323,6 +332,84 @@ namespace GraphColouringProject
             edgesString = edgesString.Trim();
 
             return "VertexOrderedGraph(" + numberOfVertices + ", " + edgesString + ")";
+        }
+
+        /// <summary>
+        /// Find the cliques of this graph. The clique number of the graph is just the length of any element of the returned int[][]
+        /// </summary>
+        public int[][] FindCliques()
+        {
+            int i = 1;
+
+            //The complete subgraphs of this graph of size i.
+            List<int[]> completeSubgraphsOfSizei = new List<int[]>();
+
+            //Construct it manually for i = 1. just all the singletons.
+
+            for (int j = 1; j <= numberOfVertices; j++)
+            {
+                completeSubgraphsOfSizei.Add(new int[] { j });
+            }
+
+            //we use these recursively to construct all the complete subgraphs of size i+1.
+
+            List<int[]> completeSubgraphsOfSizeiPlusOne = new List<int[]>();
+            do
+            {
+                //Console.WriteLine(i);
+                completeSubgraphsOfSizeiPlusOne = new List<int[]>();
+
+                //try construct all the next level subgraphs by recursion
+
+                foreach (int[] completeSubgraph in completeSubgraphsOfSizei)
+                {
+                    //we do this max thing so that we dont find things twice. e.g. we will find the complete subgraph 1, 2 starting from the singleton 1, but not from 2.
+                    int maxOrderedNodeID = completeSubgraph.Max();
+
+
+                    for (int j = maxOrderedNodeID+1; j <= numberOfVertices; j++)
+                    {
+                        //if j is connected to all of the stuff, thats a complete subgraph of size i+1
+                        bool allAreConnected = true;
+                        foreach (int originalNode in completeSubgraph)
+                        {
+                            if (AreConnected(originalNode, j) == false)
+                            {
+                                allAreConnected = false;
+                                break;
+                            }
+                        }
+                        if (allAreConnected) //new complete subgraph: this + j!
+                        {
+                            int[] newCompleteSubgraph = new int[completeSubgraph.Length + 1];
+
+                            for (int k = 0; k < completeSubgraph.Length; k++)
+                            {
+                                newCompleteSubgraph[k] = completeSubgraph[k];
+                            }
+                            newCompleteSubgraph[completeSubgraph.Length] = j;
+
+                            completeSubgraphsOfSizeiPlusOne.Add(newCompleteSubgraph);
+                        }
+                    }
+                }
+
+
+
+                i++;
+                if (completeSubgraphsOfSizeiPlusOne.Count > 0) //more stuff to do at the next stage
+                {
+                    completeSubgraphsOfSizei = completeSubgraphsOfSizeiPlusOne.Copy();
+                }
+                
+
+            } while (completeSubgraphsOfSizeiPlusOne.Count > 0); //we have found stuff of size i+1.
+
+
+            i -= 1; //i is now the clique number of the graph
+
+            return completeSubgraphsOfSizei.ToArray();
+
         }
     }
 

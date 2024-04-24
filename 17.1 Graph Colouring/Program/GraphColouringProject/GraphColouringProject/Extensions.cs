@@ -74,5 +74,16 @@ namespace GraphColouringProject
 
             return result;
         }
+
+        public static List<T> Copy<T>(this List<T> list)
+        {
+            List<T> newList = new List<T>();
+
+            foreach (T item in list)
+            {
+                newList.Add(item);
+            }
+            return newList;
+        }
     }
 }
