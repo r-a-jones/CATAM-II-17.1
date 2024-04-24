@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.12)  23 APR 2024 20:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.12)  24 APR 2024 01:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1692,29 +1692,30 @@ PGFPlots: reading {"Program Output/Question1_Table_05.txt"}
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 120.
+(caption)                particular \caption on input line 124.
 See the caption package documentation for explanation.
 
 PGFPlots: reading {"Program Output/Question1_Table_075.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 136.
+(caption)                particular \caption on input line 140.
 See the caption package documentation for explanation.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 164.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 164.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 164.
-
 [2]
-Overfull \hbox (1.24594pt too wide) in paragraph at lines 168--169
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 168.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 168.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 168.
+
+
+Overfull \hbox (1.24594pt too wide) in paragraph at lines 172--173
 []\OT1/cmr/m/n/10 Suppose $\OML/cmm/m/it/10 v[]; [] ; v[]$ \OT1/cmr/m/n/10 is t
 he orig-i-nal la-belling of the graph's ver-tices af-ter gen-er-at-ing it from 
 $\OMS/cmsy/m/n/10 G[]\OT1/cmr/m/n/10 (70\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OM
@@ -1723,82 +1724,107 @@ L/cmm/m/it/10 :\OT1/cmr/m/n/10 75)$.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 181.
+(hyperref)                removing `math shift' on input line 185.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 181.
+(hyperref)                removing `math shift' on input line 185.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 187.
+(hyperref)                removing `math shift' on input line 191.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 187.
+(hyperref)                removing `math shift' on input line 191.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 187.
+(hyperref)                removing `math shift' on input line 191.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 187.
+(hyperref)                removing `math shift' on input line 191.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 187.
+(hyperref)                removing `math shift' on input line 191.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\chi' on input line 187.
+(hyperref)                removing `\chi' on input line 191.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 187.
+(hyperref)                removing `math shift' on input line 191.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 187.
+(hyperref)                removing `math shift' on input line 191.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 187.
+(hyperref)                removing `math shift' on input line 191.
 
-[3] [4]
+[3]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 214.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 214.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 214.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 214.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 236.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 236.
+
+[4] [5]
 (C:\Users\robin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
-[21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
-[36] [37] [38] [39] [40] [41] [42] [43] [44]
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
+[22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
+[37] [38] [39] [40] [41] [42] [43] [44] [45]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-2464.
+2503.
 
 (C:\Users\robin\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-[45] [46] [47] [48] [49] [50] [51]
-Overfull \hbox (27.21631pt too wide) in paragraph at lines 2883--2885
+[46] [47] [48] [49] [50] [51] [52]
+Overfull \hbox (27.21631pt too wide) in paragraph at lines 2922--2924
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-[52]
-Overfull \hbox (17.76642pt too wide) in paragraph at lines 2901--2903
+[53]
+Overfull \hbox (17.76642pt too wide) in paragraph at lines 2940--2942
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-[53] [54] [55] (17.1 Graph Colouring.aux)
+[54] [55] [56] (17.1 Graph Colouring.aux)
 Package rerunfilecheck Info: File `"17.1 Graph Colouring".out' has not changed.
 
-(rerunfilecheck)             Checksum: F30B20DC01B0796AC7280A6241A05161;3688.
+(rerunfilecheck)             Checksum: AE0F7D971B6057FE9C6DE81A35D21196;5137.
  ) 
 Here is how much of TeX's memory you used:
- 48564 strings out of 476331
- 1105840 string characters out of 5787765
+ 48576 strings out of 476331
+ 1105970 string characters out of 5787765
  2011660 words of memory out of 5000000
- 65368 multiletter control sequences out of 15000+600000
- 521938 words of font info for 69 fonts, out of 8000000 for 9000
+ 65373 multiletter control sequences out of 15000+600000
+ 522452 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,10n,117p,1191b,2072s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\robin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
@@ -1808,20 +1834,27 @@ amsfonts/cm/cmbx10.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmbx12.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/robin/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/robin/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/robin/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/rob
-in/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/U
-sers/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.p
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/robin/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/rob
+in/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
+sers/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
 fb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr7.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy5.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/robin/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/robin/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "17.1 Graph Colouring.pdf" (55 pages, 643701 bytes).
+/cmr17.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr5.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/robin/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/robin/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/robin/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/robin
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Us
+ers/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pf
+b><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmtt9.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on "17.1 Graph Colouring.pdf" (56 pages, 721050 bytes).
 PDF statistics:
- 3691 PDF objects out of 4296 (max. 8388607)
- 2778 named destinations out of 2984 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3746 PDF objects out of 4296 (max. 8388607)
+ 2783 named destinations out of 2984 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

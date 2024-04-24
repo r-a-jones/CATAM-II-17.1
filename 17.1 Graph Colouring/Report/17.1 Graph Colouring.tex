@@ -97,6 +97,10 @@
 
 \section{17.1 Graph Colouring}
 This project's code has been written in C\#. The code can be found in the appendix at \namepageref{appendix_a_code}. The output can be found in \namepageref{appendix_b_output}.
+
+Throughout this project the notation $K_n$ will be used to refer to a complete graph on $n$ vertices.
+
+The \emph{clique number} of a graph $G$ is the largest $n$ such that there exists a $K_{n} \subseteq G$.
 		
 \subsection{Question 1}
 
@@ -199,11 +203,46 @@ Let $A_i = \{v_{i, j} \mid 1 \leq j \leq n \}$ for $i = 1, 2, 3$. Then colour al
 
 The greedy algorithm produces an $n+2$-colouring if we order the vertices as $v'_1, \dots, v'_{3n}$ as follows:
 
-$$[v'_1, \dots, v'_{3n}] = [v_{1,1}, v_{2,1}, v_{3,1}, v_{1,2}, v_{2,2}, v_{3,2}, \dots v_{1,n}, v_{2,n}, v_{3,n},].$$
+$$[v'_1, \dots, v'_{3n}] = [v_{1,1}, v_{2,1}, v_{3,1}, v_{1,2}, v_{2,2}, v_{3,2}, \dots v_{1,n}, v_{2,n}, v_{3,n}].$$
 
 Under this ordering: $v_{1,1}, v_{2,1}, v_{3,1}$ are not connected to each other, so they all get coloured $1$. $v_{1,2}, v_{2,2}, v_{3,2}$ are all not connected to each other, but are connected to two of $v_{1,1}, v_{2,1}, v_{3,1}$, thus get coloured $2$. $v_{1,3}, v_{2,3}, v_{3,3}$ are not connected to each other but are connected to two of those vertices we coloured $1$ and two of those vertices we coloured $2$. Thus they get coloured $3$. In general $v_{1,j}, v_{2,j}, v_{3,j}$ get coloured $j$ for $j<n$. Then $v_{1,n}, v_{2,n}, v_{3,n}$ form a triangle, with each connected to something of colour $1, 2, \dots, n-1$, thus they get coloured $n, n+1, n+2$ respectively.
 
 A similar construction can be used to find a graph $G$ of order $kn$ such that $\chi(G) = k$, but which greedy uses $n+k-1$ colours.
+
+\subsection{Question 3}
+
+\subsubsection{An argument to suggest that it is unlikely the greedy-type algorithm will find a complete subgraph of order $14$ in a graph from $\mathcal{G}(2000, 0.5)$.}
+
+First, note that the probability that any given $14$ randomly selected vertices selected from such a graph forms a $K_{14}$ is $\left( \frac{1}{2} \right)^{\binom{14}{2}} \approx 4.04 \cdot 10^{-28}$.
+
+The way this greedy algorithm works, given a sequence $v_1, \dots, v_{14}$ of vertices in the graph, we first check if $v_2$ is connected to $v_1$, requiring $1$ operation to test, with a probability of succeeding being $\frac{1}{2}$. If we fail, we terminate this process. We then check if $v_3$ is connected to $v_1$ and $v_2$, requiring $2$ operation to test, with a probability of succeeding being $\frac{1}{4}$, if we fail we terminate, and so on.
+
+On average, the number of operations that this algorithm uses per set of input vertices $v_1, \dots, v_{14}$ is
+
+$$\begin{aligned}
+	\mathbb{E}(\text{operations}) &= 1 + \frac{1}{2}(2 + \frac{1}{4}(3 + \cdots)) \\
+	&= 1 + \frac{1}{2} \cdot 2 + \frac{1}{2^3} \cdot 3 + \dots + \frac{1}{2^{\binom{14}{2}}} \cdot 14 \\
+	&\approx 2.44.
+\end{aligned}$$
+
+but, with a success chance of $\left( \frac{1}{2} \right)^{\binom{14}{2}}$.
+
+Thus, if we were to pick $14$-tuples of vertices at random from the graph until we successfully found a $K_{14}$, it will take about $2^{\binom{14}{2}} \cdot 2.44 \approx 6.05 \cdot 10^{27}$ operations to do so, i.e. the program will not terminate in a reasonable amount of time.
+
+We can optimise this algorithm somewhat by noting that if we have already found, say, a $K_{13}$ within the vertices $v_1, \dots, v_{13}$, it is worth testing all tuples $(v_1, \dots, v_{13}, v)$ for $v$ a vertex in the graph distinct from $v_1, \dots, v_{13}$ for a $K_{14}$. Similarly, if we have found a  $K_{12}$ we try using it to construct a $K_{13}$, and so on (i.e. the algorithm traverses a tree-like structure representing all possible pairs, triplets, ..., $14$-tuples of vertices of the graph, in a depth-first manner.) This optimisation will however still result in an incredibly large number of operations before a $K_{14}$ is likely to be found, due to the sheer size of the graph, and the exponentials involved in the probabilities we may increase our clique size at any given stage of the algorithm.
+
+Note that while it is incredibly \emph{unlikely} that such an algorithm will find a $K_{14}$ in a graph randomly chosen from $\mathcal{G}(2000, 0.5)$, it is incredibly \emph{likely} that such a graph contains a $K_{14}$. As we argue in the next part of this question, the clique number of such a graph is almost surely between 16 and 18, 
+
+\subsubsection{How large do you think a clique is likely to be in a graph from $\mathcal{G}(2000, 0.5)$?}
+
+
+
+The following is a theorem proven in II Graph Theory\footnote{The lecturer for this year, 2023-4, provides it in his notes as "Theorem 5" of "Chapter 6: Random Graphs", located on page 39 (page 41 in the linked PDF document). A sketch proof is also provided there. See \url{https://tartarus.org/gareth/maths/notes/ii/Graph_Theory.pdf}.}, which we can apply to this question:
+
+\emph{Theorem.} Let $G$ be chosen from $\mathcal{G}(n,p)$. Let $d \in \mathbb{R}_{>0}$ be the positive number such that $\binom{n}{d} p^{\binom{d}{2}} = 1$ (where we extend the binomial coefficient $\binom{\ast}{\ast}$ to the real numbers via the gamma function.) Then, almost surely, $G$ has clique number equal to $\lceil d \rceil$, $\lfloor d \rfloor$ or $\lfloor d \rfloor - 1$.
+
+Applying this theorem, for $n=2000$, $p=0.5$, we find $d \approx 17.2$. Thus, almost surely, $G$ has its largest clique of size $16, 17$ or $ 18$. As remarked in the previous section of this question, this means that almost surely there is a $K_{14} \subseteq G$, despite the fact that the greedy-like algorithm is incredibly unlikely to find a $K_{14}$.
+
 
 
 
