@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{pifont}
+\usepackage[table]{xcolor}
 \usepackage{centernot}
 \usepackage{mathtools}
 \usepackage{tabularx}
@@ -32,6 +33,23 @@
 \usepackage{footnote}
 \usepackage{enumitem}
 \usepackage{amsthm}
+\usepackage{filecontents}
+\usepackage{graphicx,nicefrac}
+
+\pgfplotstableset{
+	color cells/.style={
+		col sep=comma,
+		string type,
+		postproc cell content/.code={%
+			\pgfkeysalso{@cell content=\rule{0cm}{2.4ex}\cellcolor{black!##1}\pgfmathtruncatemacro\number{##1}\ifnum\number>50\color{white}\fi##1}%
+		},
+		columns/x/.style={
+			column name={},
+			postproc cell content/.code={}
+		}
+	}
+}
+
 \makesavenoteenv{tabular}
 \newfloat{Algorithm}{htbp}{loa}
 
@@ -93,6 +111,11 @@
 				
 
 \newtheorem{lemma}{Lemma}
+
+
+\newcommand\bsfrac[2]{%
+	\scalebox{-1}[1]{\nicefrac{\scalebox{-1}[1]{$#1$}}{\scalebox{-1}[1]{$#2$}}}%
+}
 
 
 \section{17.1 Graph Colouring}
@@ -245,7 +268,7 @@ The following is a theorem proven in II Graph Theory\footnote{The lecturer for t
 
 Applying this theorem, for $n=2000$, $p=0.5$, we find $d \approx 17.2$. Thus, almost surely, $G$ has its largest clique of size $16, 17$ or $ 18$. As remarked in the previous section of this question, this means that almost surely there is a $K_{14} \subseteq G$, despite the fact that the greedy-like algorithm is incredibly unlikely to find a $K_{14}$.
 
-\section{Question 4}
+\subsection{Question 4}
 
 \subsubsection{How the clique-finding algorithm works}
 
@@ -331,6 +354,214 @@ As can be seen in the case of the graphs in $\mathcal{G}_3(70,0.75)$, the progra
 Indeed, an element of $\mathcal{G}_3(70,0.75)$ is incredibly likely to have a chromatic number of exactly $3$ - we have proven $3$ is an upper bound, for $1$ to occur we must have precisely zero edges generate (there are $1633$ possible edges, thus the probability this occurs is $0.25^{1633}$, essentially zero) or no triangles generate (a more long-winded combinatorial argument can also show this probability is negligible).
 
 Recall the theorem stated in question 3 regarding what the clique number of $G \in \mathcal{G}(n,p)$ almost surely is. For $n=70$, $p=0.5$, we can compute that this theorem tells us the clique number is almost surely $7, 8$ or $9$ (we get $d \approx 8.99$) which indeed matches our results in that table.
+
+\subsection{Question 5}
+
+\subsubsection{Calculating a maximal independent set via the clique algorithm}
+
+For a graph $G$, say $G^c$ is the graph on the same vertex set as $G$ but with $ij$ an edge of $G \iff ij$ not an edge of $G^c$.
+
+It follows that any complete subgraph of $G^c$ corresponds to an independent set of $G$, and thus that a clique of $G^c$ corresponds to a maximal independent subset of $G$.
+
+Thus, we run the clique algorithm on $G^c$ to calculate such a set.
+
+
+\emph{Remark.} Our procedure as implemented in my code chooses for $I_i$ at each stage the first clique found in $G - I_1 - \dots - I_{i-1}$ where the cliques are ordered as the vertices are ordered and lexicographically. For example, if our two cliques are $C_1 = [3,5,7,10]$, $C_2 = [3,5,8,9]$, we say $C_1 < C_2$ as the first index in which $C_1$ and $C_2$ differ, $C_1$ has the lower number. It may be possible that in some graphs, choosing different cliques at each stage may result in a differently sized partition of $G$ into sets. We do not check all possible cliques like this, but if one were interested in an algorithm giving an improved lower bound, albeit with more computations required, implementing this is a possibility.
+
+\subsubsection{A human-verifiable example of the clique algorithm working}
+
+As before, here is a human readable example of the program working, running on $10$ vertices:
+
+\begin{tcolorbox}[size=small]
+	\begin{verbatim}
+		Question 5
+		Finding I1, I2, I3, ... for the following graph:
+		VertexOrderedGraph(10, (1, 3) (1, 4) (1, 5) (1, 6) (1, 9) (1, 10) (2, 4) (2, 8)
+		(2, 9) (2, 10) (3, 4) (3, 7) (3, 10) (4, 7) (4, 8) (5, 6) (5, 8) (5, 9) (6, 7)
+		(6, 9) (7, 8) (8, 10))
+		Found:
+		I_1 = [1, 2, 7]
+		I_2 = [3, 6, 8]
+		I_3 = [4, 5, 10]
+		I_4 = [9]
+	\end{verbatim}
+\end{tcolorbox}
+
+It is possible to verify that:
+
+\begin{itemize}
+	\item $I_1, I_2, I_3, I_4$ partition the graph into a valid colouring
+	\item $I_1$ is a clique in the original graph $G$, indeed it is the first clique in lexicographic order, $I_2$ is the first clique in lexicographic order of $G-I_1$, etc.
+ \end{itemize}
+ 
+ i.e. the program is working correctly.
+ 
+ \subsubsection{Comparison of upper bound to results from previous questions}
+ 
+ The following two tables provide ten examples of the algorithm working on $\mathcal{G}(70, 0.5)$ and $\mathcal{G}_7(70, 0.5)$ each. I have had to omit tests on $\mathcal{G}_3(70, 0.75)$ for this algorithm due to the program being unable to complete them in a reasonable time. Recall, however, that the question $1$ methods to calculate an upper bound for such graphs were very effective in that case, so this is not much of a disappointment.
+ 
+ \begin{center}
+ 	\pgfplotstabletypeset[
+ 	columns={num, oldUpperBound, newUpperBound, lowerBound},
+ 	columns/num/.style={column name={Graph tested}, string type},
+ 	columns/oldUpperBound/.style={column name={Upper bound (Q1 algorithm)}, precision=5},
+ 	columns/newUpperBound/.style={column name={Upper bound (Q5 algorithm)}, precision=5},
+ 	columns/lowerBound/.style={column name={Lower bound}, precision=5},
+ 	every column/.style={column type/.add={|}{}},
+ 	every last column/.style={column type/.add={}{|}},
+ 	every head row/.style={before row=\hline, after 	row=\hline},
+ 	every last row/.style={after row=\hline},
+ 	]{Program Output/Question5_Table_G.txt}
+ 	\captionof{table}{Upper and lower bounds on the chromatic number calculated by the question 1, question 5 \& clique algorithms for ten graphs in $\mathcal{G}(70,0.5)$.}
+ \end{center}
+ 
+  \begin{center}
+ 	\pgfplotstabletypeset[
+ 	columns={num, oldUpperBound, newUpperBound, lowerBound},
+ 	columns/num/.style={column name={Graph tested}, string type},
+ 	columns/oldUpperBound/.style={column name={Upper bound (Q1 algorithm)}, precision=5},
+ 	columns/newUpperBound/.style={column name={Upper bound (Q5 algorithm)}, precision=5},
+ 	columns/lowerBound/.style={column name={Lower bound}, precision=5},
+ 	every column/.style={column type/.add={|}{}},
+ 	every last column/.style={column type/.add={}{|}},
+ 	every head row/.style={before row=\hline, after 	row=\hline},
+ 	every last row/.style={after row=\hline},
+ 	]{Program Output/Question5_Table_G7.txt}
+ 	\captionof{table}{Upper and lower bounds on the chromatic number calculated by the question 1, question 5 \& clique algorithms for ten graphs in $\mathcal{G}_7(70,0.5)$.}
+ \end{center}
+ 
+ As can be seen in both tables, in both cases, question 5's algorithm did better on all samples than the question 1 algorithm.
+ 
+ We may be interested in the value of $\mathbb{E}(\text{number of colours used in Q1}) - \mathbb{E}(\text{number of colours used in Q5})$, i.e. the average number of colours question 5's algorithm saves.
+ 
+The first table gives the estimate that, for $\mathcal{G}(70,0.5)$, this statistic is $1.8$, and the second table gives, for $\mathcal{G}_7(70,0.5)$, the estimate is $4.7$.
+
+Recall from question 2 that it is possible to colour $\mathcal{G}_k(n,p)$ in no more than $k$ colours. The program exploits how we proved this in the $\mathcal{G}_7(70,0.5)$ case, as it is likely that a maximal independent set in the graph corresponds to vertices whose labels are all in the same congruence class $\mod 7$ on most steps of the algorithm. There is room for error here as the algorithm is not guaranteed to do this, hence why we get a bound of $8$ or $9$ in most cases. It is however notable that our results so far were able to classify $\chi(G)$ in $3$ of $10$ cases, and lower the possible range significantly in the others.
+
+\subsubsection{Varying $p$}
+
+For $n=70$ vertices, I ran $5$ tests in each of $p=0.4,0.41,\dots, 0.6$ for both $\mathcal{G} := \mathcal{G}(70,p)$ and $\mathcal{G}_7 := \mathcal{G}_7(70,p)$, finding the average upper bound for both the question 1 and question 5 tests, and the difference between them.
+
+\begin{center}
+	\pgfplotstabletypeset[
+	columns={p, GoldUpperBound, GnewUpperBound, dGBound, G7oldUpperBound, G7newUpperBound, dG7bound},
+	columns/p/.style={column name={$p$}, string type},
+	columns/GoldUpperBound/.style={column name={$\mathcal{G}$ avg. (Q1)}, precision=5},
+	columns/GnewUpperBound/.style={column name={$\mathcal{G}$ avg. (Q5)}, precision=5},
+	columns/dGBound/.style={column name={$\mathcal{G}$ (Q1-Q5)}, precision=5},
+	columns/G7oldUpperBound/.style={column name={$\mathcal{G}_7$ avg. (Q1)}, precision=5},
+	columns/G7newUpperBound/.style={column name={$\mathcal{G}_7$ avg. (Q5)}, precision=5},
+	columns/dG7bound/.style={column name={$\mathcal{G}_7$ (Q1-Q5)}, precision=5},
+	every column/.style={column type/.add={|}{}},
+	every last column/.style={column type/.add={}{|}},
+	every head row/.style={before row=\hline, after 	row=\hline},
+	every last row/.style={after row=\hline},
+	]{Program Output/Question5_varyingp_70.txt}
+	\captionof{table}{Average upper bounds for 5 samples in $\mathcal{G} := \mathcal{G}(70,p)$ and $\mathcal{G}_7 := \mathcal{G}_7(70,p)$ for varying $p$}
+\end{center}
+
+In $\mathcal{G}(70,p)$, we can see that the average upper bound on the chromatic number increases for both the question 1 and question 5 algorithm as $p$ increases, which is understandable as the larger number of edges will result in a larger number of colours required. A trend in the difference between the question 1 and question 5 algorithms does not appear to be visible. There is a very slight positive correlation, that is larger $p$ results in a larger difference (Pearson's correlation coefficient is about $0.37$). I have repeated this test for other $n$ as can be seen in the next section, and those results suggest no correlation, so this is likely an outlier. That is, the number of colours that the question 5 algorithm saves over the question 1 algorithm is essentially constant with respect to $p$.
+
+In $\mathcal{G}_7(70,p)$, there is a clear trend: the question 5 algorithm gets much better for larger $p$, resulting in an increasing difference between the algorithms. This makes sense when we consider our reasoning above and in question 2; an optimal colouring of a graph in $\mathcal{G}_7(70,p)$ is where the vertices are coloured with respect to their congruence class $\mod 7$. As remarked in this question, it is likely that the maximal independent sets found correspond to a congruence class, although it is possible a different clique in the graph's compliment is picked. However, as $p$ increases, the chance such a clique forms decreases (as fewer edges exist in the complement), and at $p=1$ the only maximal independent sets that can be picked are the congruence classes. This proves that the expected value of the number of colours used in the question 5 algorithm for a $\mathcal{G}_7(70,p)$ graph tends to $7$ as $p \to 1$, which indeed matches what we find in the table.
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[samples=100,axis lines=middle,
+			xlabel=$p$,
+			ylabel={Average difference in \#colours used in Q1 vs Q5 algorithms},
+			xmin=0.38,
+			xmax=0.6,
+			xtick={0.4,0.45,...,0.6},
+			ymin=0,
+			ymax=2.5,
+			ytick={0,0.2,...,2.5},
+			width=6in,
+			height=6cm,
+			axis x discontinuity=crunch,
+			]
+			\addplot[only marks, mark=*, color=blue] table [x=p,y=dGBound] {Program Output/Question5_varyingp_70.txt};
+			
+		\end{axis}
+	\end{tikzpicture}
+	\captionof{figure}{The average differences between the number of coloured used in the question 1 algorithm vs the question 5 algorithm for graphs in $\mathcal{G}(70,p)$.}
+\end{center}
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[samples=100,axis lines=middle,
+			xlabel=$p$,
+			ylabel={Average difference in \#colours used in Q1 vs Q5 algorithms},
+			xmin=0.38,
+			xmax=0.6,
+			xtick={0.4,0.45,...,0.6},
+			ymin=0,
+			ymax=7.5,
+			ytick={0,0.5,...,7.5},
+			width=6in,
+			height=6cm,
+			axis x discontinuity=crunch,
+			]
+			\addplot[only marks, mark=*, color=blue] table [x=p,y=dG7bound] {Program Output/Question5_varyingp_70.txt};
+			
+		\end{axis}
+	\end{tikzpicture}
+	\captionof{figure}{The average differences between the number of coloured used in the question 1 algorithm vs the question 5 algorithm for graphs in $\mathcal{G}_7(70,p)$.}
+\end{center}
+
+\newpage
+
+\subsubsection{Varying $n$ and $p$}
+
+The amount of time my program takes to compute these results increases rapidly as $n$ increases. So, I have investigated for $30 \leq n \leq 70$.
+
+I have constructed tables such as the one above for $n=30,35,40,\dots,70$ which can be found in the output in the appendix. We investigate the trends here for the question 5 algorithm.
+
+
+
+%\pgfplotstabletypeset[color cells]
+%\\
+\begin{center}
+	\pgfplotstabletypeset[
+	columns/p/.style={column name={$\bsfrac{n}{p}$}, precision=5},
+	every first column/.style={column type/.add={}{|}},
+	every head row/.style={after 	row=\hline}]{Program Output/Question5_G_heatmap.txt}
+	
+	\captionof{table}{Average number of colours used for the question $5$ algorithm on $\mathcal{G}(n,p)$, 5 samples used for each cell.}
+\end{center}
+
+As can be seen, the average number of colours used increases as either $n$ or $p$ increases, which is to be expected as per our previous explanations.
+
+It appears, that for each fixed $n$, the expected number of colours increases linearly with $p$ (it can be checked that for each fixed $n$, the correlation coefficient is $>0.85$, with most very close to $1$). Also, for fixed $p$, the expected number of colours increases linearly with $n$ (it can be checked that for each fixed $p$, the correlation coefficient is $>0.9$, with most very close to $1$).
+
+Thus, it seems reasonable to conjecture that $$\mathbb{E}(\text{\#colours the question 5 algorithm takes to colour a graph in $\mathcal{G}(n,p)$}) \propto np \quad \forall n \forall p.$$
+
+\begin{center}
+	\pgfplotstabletypeset[
+	columns/p/.style={column name={$\bsfrac{n}{p}$}, precision=5},
+	every first column/.style={column type/.add={}{|}},
+	every head row/.style={after 	row=\hline}]{Program Output/Question5_G7_heatmap.txt}
+	
+	\captionof{table}{Average number of colours used for the question $5$ algorithm on $\mathcal{G}_7(n,p)$, 5 samples used for each cell.}
+\end{center}
+
+The trends for $\mathcal{G}_7(n,p)$ appear much less clear, with the expected value appearing to increase as $p$ increases for small $n$, and decrease as $p$ increases for large $n$, within the table. As per our reasoning earlier, we know that as $p \to 1$, the expected value tends to $7$, and this is independent of $n$, so the increasing trends cannot continue.
+
+What appears to be the case is that for a given $n$ there is some $p_n$ that is least optimal, that is, the question 5 algorithm takes the most colours on average for $p \approx p_n$, being more efficient for $p < p_n$, and $p > p_n$.
+
+For example, with $n=45$, we appear to see the maximum within the table, it seems the number of colours used peaks somewhere around $0.55$, that is, $p_{45} \approx 0.55$.
+
+This trend can be explained by the fact that there is a trade-off:
+
+\begin{itemize}
+	\item For $p$ small, few edges exist in the average graph picked from $\mathbb{G}(n,p)$, thus any maximal independent sets picked for $I_1, I_2, \dots$ are likely to be efficient.
+	\item For $p$ large, as discussed, we are more likely to be forced into picking $I_1, I_2, \dots$ corresponding to the congruence classes $\mod 7$ of the vertices' labels, thus forcing us into what is almost surely a minimal colouring.
+	\item For $n$ small, we are less likely to exhaust as many colours due to their being fewer vertices to colour, so the positives of $p$ being small as described here is more likely to be pronounced. This explains why these values peak for larger $p$ in the table.
+	\item For $n$ large, we are likely to exhaust more colours, so the positives of large $p$ locking us into the specific colouring corresponding to congruence classes is more likely to be effective. This explains why these values peak for earlier $p$ in the table.
+\end{itemize}
+
+For fixed $p$, the expected value seems to vary linearly with $n$, in particular for $p$ not close to $0.5$. The correlation coefficient for such $p$ is high.
+
+
 
 \newpage
 

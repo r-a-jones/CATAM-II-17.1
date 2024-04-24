@@ -411,6 +411,175 @@ namespace GraphColouringProject
             return completeSubgraphsOfSizei.ToArray();
 
         }
+
+        /// <summary>
+        /// Returns the complement of this graph, i.e xy an edge iff xy not an edge in the complement
+        /// </summary>
+        /// <returns></returns>
+        public VertexOrderedGraph Complement()
+        {
+            List<(int, int)> complementEdges = new List<(int, int)> ();
+            for (int i = 1; i < numberOfVertices; i++)
+            {
+                for (int j = i+1; j <= numberOfVertices; j++)
+                {
+                    if (AreConnected(i,j) == false)
+                    {
+                        complementEdges.Add((i, j));
+                    }
+                }
+            }
+            return new VertexOrderedGraph(numberOfVertices, complementEdges.ToArray());
+        }
+
+        //Make a new graph, isomorphic to this - (the subgraph verticesToSubtract)
+        public VertexOrderedGraph Subtract(int[] verticesToSubtract)
+        {
+            //verify input
+
+            foreach (int vertex in verticesToSubtract)
+            {
+                if (vertex <= 0 || vertex > numberOfVertices)
+                {
+                    throw new Exception("Invalid vertex.");
+                }
+            }
+
+
+            //first, get the new edges naively.
+
+            List<(int, int)> newEdges = new List<(int, int)>();
+
+            foreach ((int, int) edge in this.edges)
+            {
+                if (!(verticesToSubtract.Contains(edge.Item1) || verticesToSubtract.Contains(edge.Item2)))
+                {
+                    //still in the graph
+
+                    //Console.WriteLine((edge.Item1, edge.Item2) + " still in the graph");
+                    newEdges.Add((edge.Item1, edge.Item2));
+                }
+            }
+
+
+            //now, relabel stuff where it is not needed, e.g. if we remove just 3, 1->1, 2->2, 4->3, 5->4
+
+            int newNumberOfVertices = numberOfVertices - verticesToSubtract.Length;
+
+            int newVertex = 1;
+            for (int oldVertex = 1; oldVertex <= numberOfVertices; oldVertex++)
+            {
+
+
+                if (!verticesToSubtract.Contains(oldVertex))
+                {
+                    //oldVertex -> newVertex
+
+                    //so replace all instances of oldVertex with newVertex
+
+                    for (int i = 0; i < newEdges.Count; i++)
+                    {
+                        //this can be optimised a lot as we know how the edges are ordered in the array
+                        //but it will have minimal improvement so i dont care
+                        //it should be done if this program were extended to graphs with larger numbers of vertices
+                        (int, int) oldNewEdge = newEdges[i];
+
+                        if (oldNewEdge.Item1 == oldVertex)
+                        {
+                            oldNewEdge.Item1 = newVertex;
+                        }
+                        if (oldNewEdge.Item2 == oldVertex)
+                        {
+                            oldNewEdge.Item2 = newVertex;
+                        }
+                        newEdges[i] = oldNewEdge;
+                    }
+
+
+                    newVertex++;
+                }
+            }
+
+            return new VertexOrderedGraph(newNumberOfVertices, newEdges.ToArray());
+            
+
+        }
+
+        /// <summary>
+        /// Colours the graph by the method as in Q5
+        /// returns sets, each of which are a different colour
+        /// 
+        /// so our colouring uses result.Length colours.
+        /// </summary>
+        /// <returns></returns>
+        public int[][] ColourByQuestion5Method()
+        {
+            int i = 1;
+            VertexOrderedGraph currentGraph = new VertexOrderedGraph(this.numberOfVertices, this.edges); //will be G - I1 - ... - Ii-1 at stage i
+
+            List<int[]> Is = new List<int[]>(); //[I1, I2, ...]
+
+            List<int> currentRemovedVertices = new List<int>();
+            while (currentGraph.numberOfVertices > 0)
+            {
+                //Console.WriteLine("current graph = " + currentGraph.ToString());
+                VertexOrderedGraph currentComplement = currentGraph.Complement();
+
+                int[] Ii = currentComplement.FindCliques()[0]; // just take the first clique we find to be Ii i suppose, will be the same size as all other cliques. guaranteed at least 1
+
+                //note Ii is labelled as in the subgraph. need to convert it back to our original labelling
+
+                //Console.WriteLine(Ii.ToFormattedString());
+                //Console.WriteLine(Ii.Max());
+
+                int oldMax = Ii.Max();
+                int oldVertex = 1;
+
+                int[] newIi = Ii.Copy();
+                for (int newVertex = 1; newVertex <= Math.Max(numberOfVertices, Ii.Max()); newVertex++)
+                {
+                    while (currentRemovedVertices.Contains(oldVertex))
+                    {
+                        //Console.WriteLine(oldVertex);
+                        oldVertex++;
+                    }
+
+                    //newVertex -> oldVertex
+
+                    for (int j = 0; j < Ii.Length; j++)
+                    {
+                        if (Ii[j] == newVertex)
+                        {
+                            newIi[j] = oldVertex;
+                        }
+                    }
+
+                    oldVertex++;
+                }
+
+                currentGraph = currentGraph.Subtract(Ii);
+
+
+                Ii = newIi.Copy();
+
+
+                Is.Add(Ii);
+
+                foreach (int vertex in Ii)
+                {
+                    currentRemovedVertices.Add(vertex);
+                }
+
+                
+                i++;
+
+
+            }
+
+            return Is.ToArray();
+
+        }
+
     }
 
 }
