@@ -17,17 +17,15 @@
 \contentsline {subsubsection}{Comparison of upper bound to results from previous questions}{8}{section*.18}%
 \contentsline {subsubsection}{Varying $p$}{9}{section*.19}%
 \contentsline {subsubsection}{Varying $n$ and $p$}{11}{section*.20}%
-\contentsline {section}{Appendix A: Code}{13}{section*.21}%
-\contentsline {subsection}{Matrices.cs}{13}{section*.22}%
-\contentsline {subsection}{MatricesKernel.cs}{18}{section*.23}%
-\contentsline {subsection}{MatricesRREF.cs}{21}{section*.24}%
-\contentsline {subsection}{ArrayExtensions.cs}{27}{section*.25}%
-\contentsline {subsection}{ContinuedFractions.cs}{29}{section*.26}%
-\contentsline {subsection}{GenericExtensions.cs}{32}{section*.27}%
-\contentsline {subsection}{ModularArithmetic.cs}{34}{section*.28}%
-\contentsline {subsection}{PellsEquation.cs}{38}{section*.29}%
-\contentsline {subsection}{PrimeFieldInverses.cs}{41}{section*.30}%
-\contentsline {subsection}{PrimesAndFactorisation.cs}{42}{section*.31}%
-\contentsline {subsection}{Program.cs}{45}{section*.32}%
-\contentsline {section}{Appendix B: Output}{63}{section*.33}%
-\contentsline {subsection}{Question 1 output}{63}{section*.34}%
+\contentsline {subsection}{Question 6}{13}{section*.21}%
+\contentsline {subsubsection}{The theoretical running times of the algorithms above when the input is a typical member of $\mathcal {G}(n,0.5)$}{13}{section*.22}%
+\contentsline {subsubsection}{A procedure for colouring a graph with exactly $\chi (G)$ colours}{15}{section*.23}%
+\contentsline {section}{Appendix A: Code}{17}{section*.24}%
+\contentsline {subsection}{Extensions.cs}{17}{section*.25}%
+\contentsline {subsection}{Graph.cs}{18}{section*.26}%
+\contentsline {subsection}{Program.cs}{29}{section*.27}%
+\contentsline {section}{Appendix B: Output}{39}{section*.28}%
+\contentsline {subsection}{Question 1 output}{39}{section*.29}%
+\contentsline {subsection}{Question 4 output}{94}{section*.30}%
+\contentsline {subsection}{Question 5 output}{150}{section*.31}%
+\contentsline {subsection}{Question 6 output}{206}{section*.32}%

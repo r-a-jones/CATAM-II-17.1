@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.12)  24 APR 2024 23:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.12)  25 APR 2024 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1814,32 +1814,32 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [5]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3
-12.
+14.
  (C:\Users\robin\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 314.
+(hyperref)                removing `math shift' on input line 316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\chi' on input line 314.
+(hyperref)                removing `\chi' on input line 316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 314.
+(hyperref)                removing `math shift' on input line 316.
 
 PGFPlots: reading {"Program Output/Question4_Table_05.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 333.
+(caption)                particular \caption on input line 335.
 See the caption package documentation for explanation.
 
 PGFPlots: reading {"Program Output/Question4_Table_075.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 347.
+(caption)                particular \caption on input line 349.
 See the caption package documentation for explanation.
 
 [6{C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
@@ -1848,33 +1848,33 @@ PGFPlots: reading {"Program Output/Question5_Table_G.txt"}
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 415.
+(caption)                particular \caption on input line 419.
 See the caption package documentation for explanation.
 
 PGFPlots: reading {"Program Output/Question5_Table_G7.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 430.
+(caption)                particular \caption on input line 434.
 See the caption package documentation for explanation.
 
 [8]
-Overfull \hbox (19.57526pt too wide) in paragraph at lines 435--436
+Overfull \hbox (19.57526pt too wide) in paragraph at lines 439--440
 []\OT1/cmr/m/n/10 We may be in-ter-ested in the value of $\U/msb/m/n/10 E\OT1/c
 mr/m/n/10 ([]) \OMS/cmsy/m/n/10 ^^@ \U/msb/m/n/10 E\OT1/cmr/m/n/10 ([])$,
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 441.
+(hyperref)                removing `math shift' on input line 445.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 441.
+(hyperref)                removing `math shift' on input line 445.
 
 PGFPlots: reading {"Program Output/Question5_varyingp_70.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 460.
+(caption)                particular \caption on input line 464.
 See the caption package documentation for explanation.
 
 [9]
@@ -1886,7 +1886,7 @@ Missing character: There is no t in font nullfont!
 PGFPlots: reading {"Program Output/Question5_varyingp_70.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 486.
+(caption)                particular \caption on input line 490.
 See the caption package documentation for explanation.
 
 Missing character: There is no . in font nullfont!
@@ -1897,104 +1897,185 @@ Missing character: There is no t in font nullfont!
 PGFPlots: reading {"Program Output/Question5_varyingp_70.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 508.
+(caption)                particular \caption on input line 512.
 See the caption package documentation for explanation.
 
 [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 513.
+(hyperref)                removing `math shift' on input line 517.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 513.
+(hyperref)                removing `math shift' on input line 517.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 513.
+(hyperref)                removing `math shift' on input line 517.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 513.
+(hyperref)                removing `math shift' on input line 517.
 
 PGFPlots: reading {"Program Output/Question5_G_heatmap.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 529.
+(caption)                particular \caption on input line 533.
 See the caption package documentation for explanation.
 
 PGFPlots: reading {"Program Output/Question5_G7_heatmap.txt"}
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 544.
+(caption)                particular \caption on input line 548.
 See the caption package documentation for explanation.
 
 [11] [12]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 574.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 574.
+
+PGFPlots: reading {"Program Output/Question6_q1_table.txt"}
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 594.
+See the caption package documentation for explanation.
+
+PGFPlots: reading {"Program Output/Question6_clique_table.txt"}
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 616.
+See the caption package documentation for explanation.
+
+[13]
+Overfull \hbox (32.99422pt too wide) in paragraph at lines 619--620
+[]\OT1/cmr/m/n/10 We see an ex-po-nen-tial trend: by per-form-ing lin-ear re-gr
+es-sion on $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 ver-sus $[]([])$
+ []
+
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+PGFPlots: reading {"Program Output/Question6_clique_table.txt"}
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 640.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (9.19475pt too wide) in paragraph at lines 645--646
+[]$[]$ \OT1/cmr/m/n/10 Once again, $30$ sam-ples for $\OML/cmm/m/it/10 n \OT1/c
+mr/m/n/10 = 30\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 35\OML/cmm/m/it/10 ; [] ; \OT1
+/cmr/m/n/10 70$
+ []
+
+PGFPlots: reading {"Program Output/Question6_q5_table.txt"}
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 657.
+See the caption package documentation for explanation.
+
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+PGFPlots: reading {"Program Output/Question6_q5_table.txt"}
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 681.
+See the caption package documentation for explanation.
+
+[14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 686.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\chi' on input line 686.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 686.
+
+[15] [16]
 (C:\Users\robin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
-[28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
-[43] [44] [45] [46] [47] [48] [49] [50] [51] [52]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-2819.
-
-(C:\Users\robin\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
-File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
-[53] [54] [55] [56] [57] [58] [59]
-Overfull \hbox (27.21631pt too wide) in paragraph at lines 3238--3240
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
+[17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
+Overfull \hbox (273.70416pt too wide) in paragraph at lines 1632--1634
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][]  
  []
 
-[60]
-Overfull \hbox (17.76642pt too wide) in paragraph at lines 3256--3258
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
- []
-
-[61] [62] [63] (17.1 Graph Colouring.aux)
+[32] [33] [34] [35] [36] [37] [38]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 1920.
+ (Program Output/Question1.txt [39] [40]
+[41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55]
+[56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
+[71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85]
+[86] [87] [88] [89] [90] [91] [92] [93]) (Program Output/Question4.txt [94]
+[95] [96] [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107]
+[108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119]
+[120] [121] [122] [123] [124] [125] [126] [127] [128] [129] [130] [131]
+[132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [142] [143]
+[144] [145] [146] [147] [148] [149]) (Program Output/Question5_firstpart.txt
+[150] [151] [152] [153] [154] [155] [156] [157] [158] [159] [160] [161]
+[162] [163] [164] [165] [166] [167] [168] [169] [170] [171] [172] [173]
+[174] [175] [176] [177] [178] [179] [180] [181] [182] [183] [184] [185]
+[186] [187] [188] [189] [190] [191] [192] [193] [194] [195] [196] [197]
+[198] [199] [200] [201]) (Program Output/Question5_varyingp.txt [202] [203]
+[204] [205]) (Program Output/Question6.txt) [206] (17.1 Graph Colouring.aux)
 Package rerunfilecheck Info: File `"17.1 Graph Colouring".out' has not changed.
 
-(rerunfilecheck)             Checksum: A094F0F749241F47EB0AF1561D86914B;8042.
+(rerunfilecheck)             Checksum: C56B68AD9565B3C79B063DCA36775C7A;8315.
  ) 
 Here is how much of TeX's memory you used:
- 49445 strings out of 476331
- 1130058 string characters out of 5787765
- 2011660 words of memory out of 5000000
- 66184 multiletter control sequences out of 15000+600000
- 523135 words of font info for 74 fonts, out of 8000000 for 9000
+ 51511 strings out of 476331
+ 1164348 string characters out of 5787765
+ 2316660 words of memory out of 5000000
+ 66085 multiletter control sequences out of 15000+600000
+ 523536 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,16n,117p,1191b,2072s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\robin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
-0900.pk> <C:\Users\robin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcrm1000.pk><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmbx10.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmbx12.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/robin/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/robin/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/robin/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/rob
-in/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
-sers/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
-fb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr17.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr5.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/robin/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/robin/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/robin/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/robin
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Us
-ers/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.p
-fb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmtt8.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmtt9.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/symbols/msbm10.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/
-fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on "17.1 Graph Colouring.pdf" (63 pages, 798354 bytes).
+ <C:\Users\robin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1000.pk><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb><C:/Users/robin/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/robin/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/robin/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/robin/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/r
+obin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
+/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr17.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr5.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr7.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/robin/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/robin/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/robin/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/rob
+in/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/U
+sers/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.
+pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmtt10.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmtt8.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmtt9.pfb><C:/Users/robin/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/robin/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on "17.1 Graph Colouring.pdf" (206 pages, 1392673 bytes).
 PDF statistics:
- 3853 PDF objects out of 4296 (max. 8388607)
- 2809 named destinations out of 2984 (max. 500000)
- 277 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6888 PDF objects out of 7423 (max. 8388607)
+ 4955 named destinations out of 5155 (max. 500000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
 

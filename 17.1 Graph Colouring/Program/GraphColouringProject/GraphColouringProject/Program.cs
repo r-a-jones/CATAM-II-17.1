@@ -1,10 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GraphColouringProject;
 
-//Question1(); //Greedy algorithm color tests
-//Question4(); //Clique algorithm tests
+Question1(); //Greedy algorithm color tests
+Question4(); //Clique algorithm tests
 Question5(); //I1, I2, I3... tests
-
+Question6(); //running time tests
 void Question1()
 {
 
@@ -99,6 +99,7 @@ void Question4()
 }
 
 void Question5()
+
 {
     Console.WriteLine("Question 5");
 
@@ -168,23 +169,179 @@ void Question5()
 
     //Lets investigate different p
 
-    /*
-    int numberOfRandomGraphs;
+    
+    //int numberOfRandomGraphs;
     numberOfRandomGraphs = 5; //it takes long so lets do half as much
 
-    int verticesInRandomGraphs = 70;
+    //int verticesInRandomGraphs = 70;
 
     for (int numberVertices = 30; numberVertices <= 70; numberVertices += 5)
     {
         Console.WriteLine("For " + numberVertices);
         Question5VaryProbabilityTests(numberOfRandomGraphs, numberVertices);
     }
-    */
+    
     
 
 
 }
 
+void Question6()
+{
+    int numberOfRandomGraphsPerTest = 30;
+    double edgeProbability = 0.5;
+    Console.WriteLine("Question 6");
+
+    Console.WriteLine("Find greedy algorithm - q1");
+
+    Console.WriteLine("n\taverageSecondsToComputeAsc\taverageSecondsToComputeDsc\taverageSecondsToComputeMinimalAmong\taverageSecondsToComputeRandom");
+
+    for (int numberOfVertices = 20; numberOfVertices <= 100; numberOfVertices += 5)
+    {
+        List<VertexOrderedGraph> randomGraphs = new List<VertexOrderedGraph>();
+
+        for (int i = 0; i < numberOfRandomGraphsPerTest; i++)
+        {
+            randomGraphs.Add(VertexOrderedGraph.RandomGraph(numberOfVertices, edgeProbability));
+        }
+
+        //have the random graphs.
+        VertexOrderedGraph[] orderedAscending = randomGraphs.Select(x => x.ReorderByAscendingDegree()).ToArray();
+        VertexOrderedGraph[] orderedDescending = randomGraphs.Select(x => x.ReorderByDescendingDegree()).ToArray();
+        VertexOrderedGraph[] orderedMinimumDegreeAmongSubgraph = randomGraphs.Select(x => x.ReorderByMinimalAmongSubgraphs()).ToArray();
+        VertexOrderedGraph[] orderedRandomly = randomGraphs.Select(x => x.ReorderRandomly()).ToArray();
+
+        //do the tests
+
+        List<double> secondsToComputeAscending = new List<double>();
+        List<double> secondsToComputeDescending = new List<double>();
+        List<double> secondsToComputeMinimumDegreeAmongSubgraph = new List<double>();
+        List<double> secondsToComputeRandomly = new List<double>();
+
+        for (int i = 0; i < randomGraphs.Count; i++)
+        {
+            double seconds;
+            DateTime startTime, endTime;
+
+            //ascend
+            startTime = DateTime.Now;
+            orderedAscending[i].GreedyColouring();
+            endTime = DateTime.Now;
+            seconds = (endTime - startTime).TotalSeconds;
+            secondsToComputeAscending.Add(seconds);
+
+
+            //descend
+            startTime = DateTime.Now;
+            orderedDescending[i].GreedyColouring();
+            endTime = DateTime.Now;
+            seconds = (endTime - startTime).TotalSeconds;
+            secondsToComputeDescending.Add(seconds);
+
+            //minimal among
+            startTime = DateTime.Now;
+            orderedMinimumDegreeAmongSubgraph[i].GreedyColouring();
+            endTime = DateTime.Now;
+            seconds = (endTime - startTime).TotalSeconds;
+            secondsToComputeMinimumDegreeAmongSubgraph.Add(seconds);
+
+            //random
+            startTime = DateTime.Now;
+            orderedRandomly[i].GreedyColouring();
+            endTime = DateTime.Now;
+            seconds = (endTime - startTime).TotalSeconds;
+            secondsToComputeRandomly.Add(seconds);
+
+
+        }
+        double averageSecondsAscending = secondsToComputeAscending.Average();
+        double averageSecondsDescending = secondsToComputeDescending.Average();
+        double averageSecondsMinimal = secondsToComputeMinimumDegreeAmongSubgraph.Average();
+        double averageSecondsRandomly = secondsToComputeRandomly.Average();
+
+        Console.WriteLine(numberOfVertices + "\t" + averageSecondsAscending + "\t" + averageSecondsDescending + "\t" + averageSecondsMinimal + "\t" + averageSecondsRandomly);
+
+
+    }
+
+    Console.WriteLine("Find cliques algorithm - q4");
+
+    Console.WriteLine("n\taverageSecondsToCompute");
+    
+
+    for (int numberOfVertices = 30; numberOfVertices <= 70; numberOfVertices += 5)
+    {
+        List<VertexOrderedGraph> randomGraphs = new List<VertexOrderedGraph>();
+
+        for (int i = 0; i < numberOfRandomGraphsPerTest; i++)
+        {
+            randomGraphs.Add(VertexOrderedGraph.RandomGraph(numberOfVertices, edgeProbability));
+        }
+
+        //have the random graphs.
+
+        //do the tests
+
+        List<double> secondsToCompute = new List<double>();
+
+        foreach (VertexOrderedGraph randomGraph in randomGraphs)
+        {
+            DateTime startTime = DateTime.Now;
+
+            randomGraph.FindCliques();
+
+            DateTime endTime = DateTime.Now;
+
+            double seconds = (endTime - startTime).TotalSeconds;
+
+            secondsToCompute.Add(seconds);
+        }
+        double averageSeconds = secondsToCompute.Average();
+
+        Console.WriteLine(numberOfVertices + "\t" + averageSeconds);
+
+
+    }
+
+    Console.WriteLine("Find I1, I2, ... algorithm - q5");
+
+    Console.WriteLine("n\taverageSecondsToCompute");
+
+    for (int numberOfVertices = 30; numberOfVertices <= 70; numberOfVertices += 5)
+    {
+        List<VertexOrderedGraph> randomGraphs = new List<VertexOrderedGraph>();
+
+        for (int i = 0; i < numberOfRandomGraphsPerTest; i++)
+        {
+            randomGraphs.Add(VertexOrderedGraph.RandomGraph(numberOfVertices, edgeProbability));
+        }
+
+        //have the random graphs.
+
+        //do the tests
+
+        List<double> secondsToCompute = new List<double>();
+
+        foreach (VertexOrderedGraph randomGraph in randomGraphs)
+        {
+            DateTime startTime = DateTime.Now;
+
+            randomGraph.ColourByQuestion5Method();
+
+            DateTime endTime = DateTime.Now;
+
+            double seconds = (endTime - startTime).TotalSeconds;
+
+            secondsToCompute.Add(seconds);
+        }
+        double averageSeconds = secondsToCompute.Average();
+
+        Console.WriteLine(numberOfVertices + "\t" + averageSeconds);
+
+
+    }
+
+}
 void Question5VaryProbabilityTests(int numberOfRandomGraphs, int verticesInRandomGraphs)
 {
     Console.WriteLine("p\tGoldUpperBound\tGnewUpperBound\tG7oldUpperBound\tG7newUpperBound");
